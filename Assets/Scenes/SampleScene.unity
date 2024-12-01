@@ -732,7 +732,7 @@ GameObject:
   - component: {fileID: 1814958858}
   - component: {fileID: 1814958857}
   - component: {fileID: 1814958856}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Platforms Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18380,26 +18380,6 @@ PrefabInstance:
     - target: {fileID: 3211041506471109819, guid: 3f28f42350436a24d80491a0488db40a, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7500455250080359688, guid: 3f28f42350436a24d80491a0488db40a, type: 3}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7500455250080359688, guid: 3f28f42350436a24d80491a0488db40a, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7500455250080359688, guid: 3f28f42350436a24d80491a0488db40a, type: 3}
-      propertyPath: m_GravityScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8507087049645518325, guid: 3f28f42350436a24d80491a0488db40a, type: 3}
-      propertyPath: runSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8507087049645518325, guid: 3f28f42350436a24d80491a0488db40a, type: 3}
-      propertyPath: playerSpeed
-      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
