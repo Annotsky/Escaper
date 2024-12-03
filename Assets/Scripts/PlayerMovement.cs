@@ -1,27 +1,25 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEngine.Rendering.DebugUI;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] float runSpeed = 1f;
-    [SerializeField] float jumpSpeed = 1f;
-    [SerializeField] float climbSpeed = 1f;
+    [SerializeField] private float runSpeed = 1f;
+    [SerializeField] private float jumpSpeed = 1f;
+    [SerializeField] private float climbSpeed = 1f;
 
-    Vector2 moveInput;
-    Rigidbody2D myRigidbody;
-    Animator myAnimator;
-    BoxCollider2D playerCollider;
-    float gravityScaleAtStart;
+    private Vector2 _moveInput;
+    private Rigidbody2D _myRigidbody;
+    private Animator _myAnimator;
+    private BoxCollider2D _playerCollider;
+    private float _gravityScaleAtStart;
 
 
     void Start()
     {
-        myRigidbody = GetComponent<Rigidbody2D>();
-        myAnimator = GetComponent<Animator>();
-        playerCollider = GetComponent<BoxCollider2D>();
-        gravityScaleAtStart = myRigidbody.gravityScale;
+        _myRigidbody = GetComponent<Rigidbody2D>();
+        _myAnimator = GetComponent<Animator>();
+        _playerCollider = GetComponent<BoxCollider2D>();
+        _gravityScaleAtStart = _myRigidbody.gravityScale;
     }
 
     void Update()
@@ -33,46 +31,46 @@ public class PlayerMovement : MonoBehaviour
 
     void OnMove(InputValue value)
     {
-        moveInput = value.Get<Vector2>();
+        _moveInput = value.Get<Vector2>();
     }
     void OnJump(InputValue value)
     {
-        if (!playerCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
+        if (!_playerCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
 
         if (value.isPressed)
         {
-            myRigidbody.linearVelocity += new Vector2(0f, jumpSpeed);
+            _myRigidbody.linearVelocity += new Vector2(0f, jumpSpeed);
         }
     }
 
     void Run()
     {
-        Vector2 playerVelocity = new Vector2(moveInput.x * runSpeed, myRigidbody.linearVelocity.y);
-        myRigidbody.linearVelocity = playerVelocity;
+        Vector2 playerVelocity = new Vector2(_moveInput.x * runSpeed, _myRigidbody.linearVelocity.y);
+        _myRigidbody.linearVelocity = playerVelocity;
     }
 
     void FlipSprite()
     {
-        bool playerHasHorisontalSpeed = Mathf.Abs(myRigidbody.linearVelocity.x) > Mathf.Epsilon;
+        bool playerHasHorisontalSpeed = Mathf.Abs(_myRigidbody.linearVelocity.x) > Mathf.Epsilon;
 
         if (playerHasHorisontalSpeed)
         {
-            transform.localScale = new Vector2(Mathf.Sign(myRigidbody.linearVelocity.x), 1f);
-            myAnimator.SetBool("isRunning", true);
+            transform.localScale = new Vector2(Mathf.Sign(_myRigidbody.linearVelocity.x), 1f);
+            _myAnimator.SetBool("isRunning", true);
         }
-        else myAnimator.SetBool("isRunning", false);
+        else _myAnimator.SetBool("isRunning", false);
     }
 
     void ClimbLadder()
     {
-        if (!playerCollider.IsTouchingLayers(LayerMask.GetMask("Climbing"))) 
+        if (!_playerCollider.IsTouchingLayers(LayerMask.GetMask("Climbing"))) 
         {
-            myRigidbody.gravityScale = gravityScaleAtStart;
+            _myRigidbody.gravityScale = _gravityScaleAtStart;
             return; 
         }
 
-        Vector2 climbVelocity = new Vector2(myRigidbody.linearVelocity.x, moveInput.y * climbSpeed);
-        myRigidbody.linearVelocity = climbVelocity;
-        myRigidbody.gravityScale = 0f;
+        Vector2 climbVelocity = new Vector2(_myRigidbody.linearVelocity.x, _moveInput.y * climbSpeed);
+        _myRigidbody.linearVelocity = climbVelocity;
+        _myRigidbody.gravityScale = 0f;
     }
 }
