@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private float _gravityScaleAtStart;
 
 
-    void Start()
+    private void Start()
     {
         _myRigidbody = GetComponent<Rigidbody2D>();
         _myAnimator = GetComponent<Animator>();
@@ -22,18 +22,18 @@ public class PlayerMovement : MonoBehaviour
         _gravityScaleAtStart = _myRigidbody.gravityScale;
     }
 
-    void Update()
+    private void Update()
     {
         Run();
         FlipSprite();
         ClimbLadder();
     }
 
-    void OnMove(InputValue value)
+    private void OnMove(InputValue value)
     {
         _moveInput = value.Get<Vector2>();
     }
-    void OnJump(InputValue value)
+    private void OnJump(InputValue value)
     {
         if (!_playerCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
 
@@ -43,17 +43,17 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void Run()
+    private void Run()
     {
         Vector2 playerVelocity = new Vector2(_moveInput.x * runSpeed, _myRigidbody.linearVelocity.y);
         _myRigidbody.linearVelocity = playerVelocity;
     }
 
-    void FlipSprite()
+    private void FlipSprite()
     {
-        bool playerHasHorisontalSpeed = Mathf.Abs(_myRigidbody.linearVelocity.x) > Mathf.Epsilon;
+        bool playerHasHorizontalSpeed = Mathf.Abs(_myRigidbody.linearVelocity.x) > Mathf.Epsilon;
 
-        if (playerHasHorisontalSpeed)
+        if (playerHasHorizontalSpeed)
         {
             transform.localScale = new Vector2(Mathf.Sign(_myRigidbody.linearVelocity.x), 1f);
             _myAnimator.SetBool("isRunning", true);
@@ -61,16 +61,21 @@ public class PlayerMovement : MonoBehaviour
         else _myAnimator.SetBool("isRunning", false);
     }
 
-    void ClimbLadder()
+    private void ClimbLadder()
     {
+        
         if (!_playerCollider.IsTouchingLayers(LayerMask.GetMask("Climbing"))) 
         {
             _myRigidbody.gravityScale = _gravityScaleAtStart;
+            _myAnimator.SetBool("isClimbing", false);
             return; 
         }
 
         Vector2 climbVelocity = new Vector2(_myRigidbody.linearVelocity.x, _moveInput.y * climbSpeed);
         _myRigidbody.linearVelocity = climbVelocity;
         _myRigidbody.gravityScale = 0f;
+        
+        bool playerHasVerticalSpeed = Mathf.Abs(_myRigidbody.linearVelocity.y) > Mathf.Epsilon;
+        _myAnimator.SetBool("isClimbing", playerHasVerticalSpeed);
     }
 }
