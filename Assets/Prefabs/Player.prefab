@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7500455250080359688}
   - component: {fileID: 2765933437952229222}
   - component: {fileID: 8507087049645518325}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5be346a75db13b04db4d096836f8a8ca, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -231,4 +231,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   runSpeed: 7
   jumpSpeed: 20
-  climbSpeed: 5
+  climbSpeed: 6
