@@ -42,9 +42,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Climb",
+                    "name": "Fire",
                     "type": "Button",
-                    "id": "8e2c5035-2fd7-4776-b4a4-bbff0bd4c0fc",
+                    "id": "5c19553d-627d-4d9f-86f5-67f83cecb199",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -286,7 +286,7 @@
                 {
                     "name": "",
                     "id": "6745528e-14f0-4825-9eb5-9418dc658128",
-                    "path": "<Keyboard>/space",
+                    "path": "<Keyboard>/z",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
@@ -307,12 +307,12 @@
                 },
                 {
                     "name": "",
-                    "id": "70000aea-0e21-471c-9f35-72e4111083ff",
-                    "path": "<Keyboard>/upArrow",
+                    "id": "be479a6b-9e29-4f5d-809b-87d50b2b31d3",
+                    "path": "<Keyboard>/x",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Climb",
+                    "groups": "",
+                    "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

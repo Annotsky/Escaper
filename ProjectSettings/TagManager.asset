@@ -17,8 +17,8 @@ TagManager:
   - Background
   - Bouncing
   - Enemies
-  - 
-  - 
+  - Spikes
+  - Bullets
   - 
   - 
   - 
@@ -52,6 +52,9 @@ TagManager:
     locked: 0
   - name: Ladder
     uniqueID: 590197151
+    locked: 0
+  - name: Spikes
+    uniqueID: 757513239
     locked: 0
   - name: Enemies
     uniqueID: 3170660359
