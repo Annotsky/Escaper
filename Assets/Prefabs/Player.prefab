@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 155608315906680572}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.326, y: -0.21, z: 0}
+  m_LocalPosition: {x: 0.48, y: -0.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: 8560531246146605564}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,7 +134,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 665362879
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 1857188551261513057, guid: d2da985c66526244fa008edd9ab3b057, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -257,6 +257,8 @@ MonoBehaviour:
   jumpSpeed: 20
   climbSpeed: 6
   deathKick: {x: 20, y: 20}
+  arrow: {fileID: 4081953125258456607, guid: 9f46211c600299547a503489ddee7e9d, type: 3}
+  gun: {fileID: 8608068006651082067}
 --- !u!61 &8560531246146605564
 BoxCollider2D:
   m_ObjectHideFlags: 0

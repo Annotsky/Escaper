@@ -19,7 +19,7 @@ TagManager:
   - Enemies
   - Spikes
   - Arrows
-  - 
+  - Interactables
   - 
   - 
   - 
@@ -56,11 +56,17 @@ TagManager:
   - name: Spikes
     uniqueID: 757513239
     locked: 0
+  - name: Interactables
+    uniqueID: 2151536971
+    locked: 0
   - name: Enemies
     uniqueID: 3170660359
     locked: 0
   - name: Player
     uniqueID: 665362879
+    locked: 0
+  - name: Bullets
+    uniqueID: 1712052543
     locked: 0
   m_RenderingLayers:
   - Default
