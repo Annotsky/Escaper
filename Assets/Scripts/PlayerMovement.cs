@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject arrow;
     [SerializeField] private Transform gun;
 
+
     private Vector2 _moveInput;
     private Rigidbody2D _myRigidbody;
     private Animator _myAnimator;
@@ -18,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     private float _gravityScaleAtStart;
     
     private bool _isAlive = true;
+    
+    
 
 
     private void Start()
